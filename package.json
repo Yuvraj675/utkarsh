@@ -6,6 +6,7 @@
     "build": "npx tailwindcss -i ./css/input.css -o ./css/output.css --watch"
   },
   "dependencies": {
-    "tailwindcss-animated": "^1.1.2"
+    "tailwindcss-animated": "^1.1.2",
+    "taos": "^1.0.5"
   }
 }
