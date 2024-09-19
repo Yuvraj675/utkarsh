@@ -160,20 +160,27 @@
                     alt="photo">
                 <div class="flex items-center justify-between mb-8 text-black/60 text-sm mx-auto w-4/5">
                     <button class="flex gap-2 items-center justify-center align-middle">
-                        <i id="like" class="text-black/60 fa-regular fa-thumbs-up  hover:bg-slate-300 cursor-pointer transition-all rounded-full p-2 text-2xl"></i>
+                        <i id="like"
+                            class="text-black/60 fa-regular fa-thumbs-up  hover:bg-slate-300 cursor-pointer transition-all rounded-full p-2 text-2xl"></i>
                         <span>2.4M</span>
                     </button>
                     <button class="flex gap-2 items-center justify-center align-middle">
-                        <i id="dislike" class="text-black/60 fa-regular fa-thumbs-down hover:bg-slate-300 cursor-pointer transition-all rounded-full p-2 text-2xl"></i>
+                        <i id="dislike" data-tooltip-target="tooltip-dislike" data-tooltip-placement="top"
+                            class="dislike  text-black/60 fa-regular fa-thumbs-down  hover:bg-slate-300 cursor-pointer transition-all rounded-full p-2 text-2xl"></i>
+                        <div id="tooltip-dislike" role="tooltip"
+                            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                            Nothing to dislike here :]
+                            <div class="tooltip-arrow" data-popper-arrow></div>
+                        </div>
                         <span>234</span>
                     </button>
-                    <p class="flex gap-2 items-center justify-center align-middle"><span
-                            class="material-symbols-outlined">
+                    <button id="share" class="flex gap-2 items-center justify-center align-middle"><span
+                            class="material-symbols-outlined  hover:bg-slate-300 cursor-pointer transition-all rounded-full p-2 mb-1">
                             share
                         </span><span>324K</span>
-                    </p>
+                    </button>
                     <p class="flex gap-2 items-center justify-center align-middle"><span
-                            class="material-symbols-outlined">
+                            class="material-symbols-outlined hover:bg-slate-300 cursor-pointer transition-all rounded-full p-2">
                             chat
                         </span><span>786K</span>
                     </p>
@@ -252,29 +259,51 @@
     </div>
 
     <script>
-        // Get the button
+
         const likeButton = document.getElementById("like");
+        const dislikeButton = document.getElementById("dislike");
+        const shareButton = document.getElementById("share");
 
         // Add an event listener for the click event
         likeButton.addEventListener("click", () => {
-            
+
             likeButton.classList.toggle("fa-regular");
             likeButton.classList.toggle("fa-solid");
             likeButton.classList.toggle("text-blue-500")
             likeButton.classList.toggle("text-black/60")
+            if (dislikeButton.classList.contains("animate-rotate-x")) {
+                dislikeButton.classList.toggle("animate-rotate-x")
+            }
 
         });
 
-        const dislikeButton = document.getElementById("dislike");
 
         // Add an event listener for the click event
         dislikeButton.addEventListener("click", () => {
-            
-            dislikeButton.classList.toggle("fa-regular");
-            dislikeButton.classList.toggle("fa-solid");
-            dislikeButton.classList.toggle("text-red-500")
-            dislikeButton.classList.toggle("text-black/60")
+            dislikeButton.classList.toggle("animate-rotate-x")
 
+            if (likeButton.classList.contains("fa-solid")) {
+                likeButton.classList.toggle("fa-regular");
+                likeButton.classList.toggle("fa-solid");
+                likeButton.classList.toggle("text-blue-500")
+                likeButton.classList.toggle("text-black/60")
+            }
+
+        })
+
+        const shareData = {
+            title: "Utkarsh Mathur | Portfolio",
+            text: "Check Out My Portfolio",
+            url: "https://utkarshmathur.netlify.app",
+        };
+
+        shareButton.addEventListener("click", async () => {
+            try {
+                await navigator.share(shareData);
+                console.log("shared");
+            } catch (err) {
+                console.log('error');
+            }
         });
     </script>
 </body>
