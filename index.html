@@ -178,8 +178,7 @@
             display: flex;
             aspect-ratio: 16 / 9;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
+            
             box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
             border-radius: 0.5rem;
             -ms-overflow-style: none;
@@ -195,7 +194,7 @@
 
         .slider img {
             flex: 1 0 100%;
-            scroll-snap-align: start;
+            
             object-fit: cover;
         }
 
@@ -226,9 +225,9 @@
 
 <body class="bg-[url('../assets/bg.jpg')] bg-repeat-y bg-cover text-4xl font-semibold text-[#373739] w-full" ,
     style="font-family: 'Montserrat', sans-serif;">
-    <main>
+    <main class="snap-x snap-mandatory">
         <div
-            class="hero h-svh relative overflow-x-clip text-5xl md:text-7xl 2xl:text-9xl  flex items-center justify-center w-full">
+            class="hero snap-start snap-always h-svh relative overflow-x-clip text-5xl md:text-7xl 2xl:text-9xl  flex items-center justify-center w-full">
             <div
                 class="rounded-[20%] blur-sm size-32 -top-14 -left-10 md:size-56 2xl:size-80 bg-[#373739] absolute md:-top-16 md:-left-16 -rotate-12  text-[#f3c54f]  flex shrink justify-center items-center hover:blur-0 transition-all  cursor-default">
                 <p class="pb-4">Ae</p>
@@ -280,7 +279,7 @@
                 </div>
             </div>
         </div>
-        <div id="about" class="second flex">
+        <div id="about" class="second flex snap-start snap-always">
             <section class="l relative w-2/5 mt-48 h-screen hidden lg:flex items-center justify-center mr-12">
                 <div class="absolute rounded-full w-[90%] h-36 top-[20%] -rotate-[15deg] -z-10 bg-[#ecba3a]"></div>
                 <div class="absolute rounded-full w-[90%] h-36 top-[55%] -rotate-[30deg] -z-10 bg-[#ecba3a]"></div>
@@ -392,7 +391,7 @@
 
         </div>
 
-        <div id="thumbnails" class="mb-8">
+        <div id="thumbnails" class="mb-8 snap-start snap-always">
 
             <div
                 class="bg-[url('../assets/layer_thumbnails.png')] bg-center h-fit w-full py-6 pl-3 sm:py-11 sm:pl-4 md:py-16 md:pl-6 xl:py-28 xl:pl-12 bg-cover bg-repeat-x flex items-center justify-center">
@@ -405,12 +404,12 @@
             <!-- Image Carousel Phone -->
             <section class="box md:hidden px-10 py-4 sm:py-16">
                 <div class="slider-wrapper ">
-                    <div class="slider">
-                        <img src="./assets/img-5.jpg" id="slide-1">
-                        <img src="./assets/img-1.jpg" id="slide-2">
-                        <img src="./assets/img-2.jpg" id="slide-3">
-                        <img src="./assets/img-3.jpg" id="slide-4">
-                        <img src="./assets/img-4.jpg" id="slide-5">
+                    <div class="slider snap-x snap-mandatory">
+                        <img class="snap-center snap-always" src="./assets/img-5.jpg" id="slide-1">
+                        <img class="snap-center snap-always" src="./assets/img-1.jpg" id="slide-2">
+                        <img class="snap-center snap-always" src="./assets/img-2.jpg" id="slide-3">
+                        <img class="snap-center snap-always" src="./assets/img-3.jpg" id="slide-4">
+                        <img class="snap-center snap-always" src="./assets/img-4.jpg" id="slide-5">
                     </div>
                     <div class="slider-nav">
                         <a href="#slide-1"></a>
@@ -467,7 +466,7 @@
 
         </div>
 
-        <div id="reels" class="h-screen flex flex-col items-center ">
+        <div id="reels" class="h-screen flex flex-col items-center snap-start snap-always ">
 
             <div
                 class="bg-[url('../assets/layerreel.png')] bg-center h-fit w-full py-6 pl-3 sm:py-11 sm:pl-4 md:py-16 md:pl-6 xl:py-28 xl:pl-12 bg-cover bg-repeat-x flex items-center justify-center">
