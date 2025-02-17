@@ -1124,6 +1124,38 @@ input[type="range"]::-ms-fill-lower {
   height: 100svh;
 }
 
+.max-h-36 {
+  max-height: 9rem;
+}
+
+.max-h-48 {
+  max-height: 12rem;
+}
+
+.max-h-64 {
+  max-height: 16rem;
+}
+
+.max-h-56 {
+  max-height: 14rem;
+}
+
+.min-h-6 {
+  min-height: 1.5rem;
+}
+
+.min-h-12 {
+  min-height: 3rem;
+}
+
+.min-h-36 {
+  min-height: 9rem;
+}
+
+.min-h-16 {
+  min-height: 4rem;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -1454,15 +1486,6 @@ input[type="range"]::-ms-fill-lower {
 .border-black {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-
-.border-black\/60 {
-  border-color: rgb(0 0 0 / 0.6);
-}
-
-.border-slate-800 {
-  --tw-border-opacity: 1;
-  border-color: rgb(30 41 59 / var(--tw-border-opacity));
 }
 
 .\!bg-gray-50 {
@@ -2216,44 +2239,12 @@ input[type="range"]::-ms-fill-lower {
     line-height: 1.75rem;
   }
 
-  .lg\:hover\:size-14:hover {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-
-  .lg\:hover\:border-0:hover {
-    border-width: 0px;
-  }
-
-  .lg\:hover\:border:hover {
-    border-width: 1px;
-  }
-
   .lg\:hover\:border-2:hover {
     border-width: 2px;
   }
 
-  .lg\:hover\:bg-white:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  }
-
   .lg\:hover\:bg-white\/60:hover {
     background-color: rgb(255 255 255 / 0.6);
-  }
-
-  .lg\:hover\:fill-black:hover {
-    fill: #000000;
-  }
-
-  .lg\:hover\:text-2xl:hover {
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  .lg\:hover\:text-white:hover {
-    --tw-text-opacity: 1;
-    color: rgb(255 255 255 / var(--tw-text-opacity));
   }
 
   .lg\:hover\:text-slate-800:hover {
