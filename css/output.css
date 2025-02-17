@@ -1020,6 +1020,10 @@ input[type="range"]::-ms-fill-lower {
   margin-top: 1.5rem;
 }
 
+.box-border {
+  box-sizing: border-box;
+}
+
 .block {
   display: block;
 }
@@ -1452,6 +1456,15 @@ input[type="range"]::-ms-fill-lower {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
+.border-black\/60 {
+  border-color: rgb(0 0 0 / 0.6);
+}
+
+.border-slate-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(30 41 59 / var(--tw-border-opacity));
+}
+
 .\!bg-gray-50 {
   --tw-bg-opacity: 1 !important;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity)) !important;
@@ -1873,23 +1886,9 @@ input[type="range"]::-ms-fill-lower {
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
 
-.hover\:text-5xl:hover {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.hover\:text-white\/10:hover {
-  color: rgb(255 255 255 / 0.1);
-}
-
-.hover\:text-slate-600:hover {
-  --tw-text-opacity: 1;
-  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
 .hover\:opacity-100:hover {
@@ -2222,8 +2221,52 @@ input[type="range"]::-ms-fill-lower {
     height: 3.5rem;
   }
 
+  .lg\:hover\:border-0:hover {
+    border-width: 0px;
+  }
+
+  .lg\:hover\:border:hover {
+    border-width: 1px;
+  }
+
+  .lg\:hover\:border-2:hover {
+    border-width: 2px;
+  }
+
+  .lg\:hover\:bg-white:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  }
+
+  .lg\:hover\:bg-white\/60:hover {
+    background-color: rgb(255 255 255 / 0.6);
+  }
+
+  .lg\:hover\:fill-black:hover {
+    fill: #000000;
+  }
+
+  .lg\:hover\:text-2xl:hover {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .lg\:hover\:text-white:hover {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+
+  .lg\:hover\:text-slate-800:hover {
+    --tw-text-opacity: 1;
+    color: rgb(30 41 59 / var(--tw-text-opacity));
+  }
+
   .group:hover .lg\:group-hover\:mt-10 {
     margin-top: 2.5rem;
+  }
+
+  .group:hover .lg\:group-hover\:fill-black {
+    fill: #000000;
   }
 
   .group:hover .lg\:group-hover\:text-4xl {
