@@ -134,15 +134,15 @@
             text-transform: uppercase;
         }
 
-        input {
+        input[type="radio"] {
             display: none !important;
         }
 
-        input:checked+label {
+        input[type="radio"]:checked+label {
             width: 65vw;
         }
 
-        input:checked+label .description {
+        input[type="radio"]:checked+label .description {
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
@@ -178,7 +178,7 @@
             display: flex;
             aspect-ratio: 16 / 9;
             overflow-x: auto;
-            
+
             box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
             border-radius: 0.5rem;
             -ms-overflow-style: none;
@@ -194,7 +194,7 @@
 
         .slider img {
             flex: 1 0 100%;
-            
+
             object-fit: cover;
         }
 
@@ -220,11 +220,22 @@
         .slider-nav a:hover {
             opacity: 1;
         }
+
+        .light {
+            width: 200px;
+            height: 0;
+            border-style: solid;
+            border-bottom: 200px white;
+            border-right: 100px transparent;
+            border-left: 100px transparent;
+        }
     </style>
 </head>
 
 <body class="bg-[url('../assets/bg.jpg')] bg-repeat-y bg-cover text-4xl font-semibold text-[#373739] w-full" ,
     style="font-family: 'Montserrat', sans-serif;">
+
+
     <main class="snap-x snap-mandatory">
         <div
             class="hero snap-start snap-always h-svh relative overflow-x-clip text-5xl md:text-7xl 2xl:text-9xl  flex items-center justify-center w-full">
@@ -267,20 +278,20 @@
                         <a href="#reels"
                             class="duration-300 ease-out cursor-pointer text-sm md:text-2xl sm:text-lg shadow-2xl lg:group-hover:text-4xl transition-all bg-[#efba2d] rounded-full px-4 py-2 border border-black"><span
                                 class="hover:text-white">Video Editor</span></a>
-                        <a
+                        <a href="#animations"
                             class="duration-300 ease-out cursor-pointer text-sm md:text-2xl sm:text-lg shadow-2xl lg:group-hover:text-4xl transition-all bg-[#efba2d] rounded-full px-4 py-2 border border-black"><span
                                 class="hover:text-white">3d Artist</span></a>
 
                     </div>
                 </div>
-                <div
-                    class="hidden portrait:block portrait:animate-wiggle text-4xl portrait:text-3xl lg:block absolute bottom-4 mx-auto animate-bounce animate-infinite animate-ease-out animate-normal">
-                    <i class="fa-solid fa-arrow-down pb-16 portrait:pb-8"></i>
-                </div>
+                <a href="#about"
+                    class="portrait:block portrait:animate-wiggle text-4xl portrait:text-lg lg:block absolute bottom-4 mx-auto animate-bounce animate-infinite animate-ease-out animate-normal">
+                    <i class="fa-solid fa-arrow-down pb-16 portrait:pb-2"></i>
+                </a>
             </div>
         </div>
         <div id="about" class="second flex snap-start snap-always">
-            <section class="l relative w-2/5 mt-48 h-screen hidden lg:flex items-center justify-center mr-12">
+            <section class="l relative w-2/5 mt-48 hidden lg:flex items-center justify-center mr-12">
                 <div class="absolute rounded-full w-[90%] h-36 top-[20%] -rotate-[15deg] -z-10 bg-[#ecba3a]"></div>
                 <div class="absolute rounded-full w-[90%] h-36 top-[55%] -rotate-[30deg] -z-10 bg-[#ecba3a]"></div>
                 <div
@@ -405,11 +416,11 @@
             <section class="box md:hidden px-10 py-4 sm:py-16">
                 <div class="slider-wrapper ">
                     <div class="slider snap-x snap-mandatory">
-                        <img class="snap-center snap-always" src="./assets/img-5.jpg" id="slide-1">
-                        <img class="snap-center snap-always" src="./assets/img-1.jpg" id="slide-2">
-                        <img class="snap-center snap-always" src="./assets/img-2.jpg" id="slide-3">
-                        <img class="snap-center snap-always" src="./assets/img-3.jpg" id="slide-4">
-                        <img class="snap-center snap-always" src="./assets/img-4.jpg" id="slide-5">
+                        <img class="snap-start snap-always" src="./assets/img-5.jpg" id="slide-1">
+                        <img class="snap-start snap-always" src="./assets/img-1.jpg" id="slide-2">
+                        <img class="snap-start snap-always" src="./assets/img-2.jpg" id="slide-3">
+                        <img class="snap-start snap-always" src="./assets/img-3.jpg" id="slide-4">
+                        <img class="snap-start snap-always" src="./assets/img-4.jpg" id="slide-5">
                     </div>
                     <div class="slider-nav">
                         <a href="#slide-1"></a>
@@ -466,7 +477,9 @@
 
         </div>
 
-        <div id="reels" class="h-screen flex flex-col items-center snap-start snap-always ">
+        <div id="reels" class="flex flex-col items-center snap-start snap-always pb-24 relative overflow-x-hidden">
+
+
 
             <div
                 class="bg-[url('../assets/layerreel.png')] bg-center h-fit w-full py-6 pl-3 sm:py-11 sm:pl-4 md:py-16 md:pl-6 xl:py-28 xl:pl-12 bg-cover bg-repeat-x flex items-center justify-center">
@@ -475,12 +488,229 @@
                     style='font-family: "Eastman Trial";'>REELS</h1>
             </div>
 
-            <div class="flex flex-col items-center justify-center w-full my-12">
-                <iframe class="aspect-[9/16] w-1/2 md:w-1/4" src="https://drive.google.com/file/d/1Xy5APiJ8-FzKWEX8xqPP2__uWYQaPJVL/preview" allow="autoplay"></iframe>
+            <!-- sliders -->
+            <!-- <div class="slider-box flex flex-col justify-center absolute h-screen top-64">
+
+                <div class="flex space-x-16 overflow-x-hidden group -z-20 "> 
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause">
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-30 blur-sm max-w-none w-96" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+    
+    
+                </div>
+                <div class="flex space-x-16 overflow-x-hidden group -z-20 "> 
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+    
+    
+                </div>
+                <div class="flex space-x-16 overflow-x-hidden group -z-20 "> 
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+    
+    
+                </div>
+                <div class="flex space-x-16 overflow-x-hidden group -z-20 "> 
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+    
+    
+                </div>
+                <div class="flex space-x-16 overflow-x-hidden group -z-20 "> 
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+                    <ul class="flex space-x-16 w-max animate-infinite-scroll group-hover:animate-pause" aria-hidden="true">
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/premiere.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/after.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/photoshop.png" alt=""></li>
+                        <li><img class="grayscale opacity-60 blur-sm max-w-none w-20" src="./assets/icons/light.png" alt=""></li> 
+                    </ul>
+    
+    
+                </div>
+            </div> -->
+
+            <!-- sliders -->
+
+            <!-- Full Reels -->
+
+            <div class="w-full justify-around hidden md:flex">
+
+                <iframe class="aspect-[9/16] mt-12 w-1/2 md:w-1/4 rounded-3xl shadow-2xl shadow-black"
+                    src="https://www.youtube-nocookie.com/embed/3-1b5qUOt4A?autoplay=1&loop=1&modestbranding=1&iv_load_policy=3&color=white&playlist=3-1b5qUOt4A"
+                    title="Reels" frameborder="0" allowfullscreen>
+                </iframe>
+                <iframe class="aspect-[9/16] mt-12 w-1/2 md:w-1/4 rounded-3xl shadow-2xl shadow-black"
+                    src="https://www.youtube-nocookie.com/embed/kipZaOXt3M0?autoplay=1&loop=1&modestbranding=1&iv_load_policy=3&color=white&playlist=kipZaOXt3M0"
+                    title="Reels" frameborder="0" allowfullscreen>
+                </iframe>
+                <iframe class="aspect-[9/16] mt-12 w-1/2 md:w-1/4 rounded-3xl shadow-2xl shadow-black"
+                    src="https://www.youtube-nocookie.com/embed/-ljgu4GW2is?autoplay=1&loop=1&modestbranding=1&iv_load_policy=3&color=white&playlist=-ljgu4GW2is"
+                    title="Reels" frameborder="0" allowfullscreen>
+                </iframe>
             </div>
-            <!-- test -->
+
+            <!-- Phone reels -->
+
+            <div class="flex items-center justify-around w-full mb-2 md:hidden">
 
 
+                <iframe id="video" class="aspect-[9/16] mt-12 w-[75%] sm:w-[60%]  rounded-2xl shadow-2xl shadow-black" src=""
+                    title="Reels" frameborder="0" allowfullscreen>
+                </iframe>
+
+
+
+            </div>
+            <div class="flex items-center gap-2 md:gap-6 py-6 rounded-3xl md:hidden">
+                <button id="prev"
+                    class="bg-white/6 md:p-4 md:py-2 p-2 py-1 md:animate-wiggle animate-infinite hover:animate-pause text-sm md:text-lg transition-all rounded-lg hover:bg-slate-800 hover:text-white">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <img class="thumb rounded-xl aspect-video h-12 sm:h-16 md:h-24 hover:opacity-100 opacity-45 transition-all cursor-pointer shadow-2xl shadow-black"
+                    src="./assets/thumb/politics.jpg" alt="">
+                <img class="thumb rounded-xl aspect-video h-12 sm:h-16 md:h-24 hover:opacity-100 opacity-45 transition-all cursor-pointer shadow-2xl shadow-black"
+                    src="./assets/thumb/perfume.jpg" alt="">
+                <img class="thumb rounded-xl aspect-video h-12 sm:h-16 md:h-24 hover:opacity-100 opacity-45 transition-all cursor-pointer shadow-2xl shadow-black"
+                    src="./assets/thumb/nsb.jpg" alt="">
+                <button id="next"
+                    class="bg-white/6 md:p-4 md:py-2 p-2 py-1 md:animate-wiggle animate-infinite hover:animate-pause text-sm md:text-lg transition-all rounded-lg hover:bg-slate-800 hover:text-white">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
 
 
 
@@ -488,8 +718,74 @@
 
 
         </div>
-        
+
+        <div id="animations" class="flex flex-col items-center snap-start snap-always pb-32 relative overflow-x-hidden">
+
+
+
+            <div
+                class="bg-[url('../assets/layer_3danimation.png')] bg-center h-fit w-full py-6 pl-3 sm:py-11 sm:pl-4 md:py-16 md:pl-6 xl:py-28 xl:pl-12 bg-cover bg-repeat-x flex items-center justify-center">
+
+                <h1 class="text-3xl transition-all sm:text-5xl md:text-7xl xl:text-9xl text-[#deb137] text-center text-bold"
+                    style='font-family: "Eastman Trial";'><span style="font-family: 'Montserrat', sans-serif;">3</span>D
+                    ANIMATION</h1>
+            </div>
+
+
+            <!-- Full Video -->
+
+            <div class="w-full justify-around flex items-center">
+
+                <iframe class="aspect-video mt-12 w-[80%] rounded-xl md:rounded-2xl shadow-2xl shadow-black"
+                    src="https://www.youtube.com/embed/nUstW51TN0I?autoplay=1&loop=1&modestbranding=1&rel=0&playlist=nUstW51TN0I"
+                    title="Starting Stream..." frameborder="0" allowfullscreen></iframe>
+
+            </div>
+
+
+
+
+
+
+        </div>
+
+
     </main>
+
+    <hr class="border-t-2 border-black border-dashed w-full my-1">
+    <hr class="border-t-2 border-black border-dashed w-full my-1">
+    <hr class="border-t-2 border-black border-dashed w-full my-1">
+
+    <footer class="h-screen backdrop-blur-md flex items-center justify-center">
+        <div class=" flex flex-col items-center justify-center rounded-3xl z-10 shadow-2xl text-black text-lg md:text-xl cursor-default shadow-black backdrop-blur-sm md:backdrop-blur-md h-3/4 w-5/6"
+        style="font-family: 'Montserrat', sans-serif;">
+            <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col justify-around md:w-4/5 xl:w-3/5 px-6 w-full md:h-4/5 h-full py-6">
+                
+                <input type="hidden" name="access_key" value="37a8479e-ada8-4d4f-9285-bed674812869">
+
+                <div style="font-family: 'Chelsea Market', serif;">
+                    <h1 class="text-3xl md:text-5xl text-center">Contact Me</h1>
+
+                </div>
+                <div class="flex flex-col gap-4">
+                    
+                    <label for="name">Full Name</label>
+                    <input class="rounded-xl bg-white/60 font-light" type="text" name="name" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="flex flex-col gap-4">
+
+                    <label for="email">Email</label>
+                    <input class="rounded-xl bg-white/60 font-light" type="email" name="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <label for="message">Message</label>
+                    <textarea class="rounded-xl bg-white/60 font-light" name="message" id="message" placeholder="Enter your message" required></textarea>
+
+                </div>
+                <button type="submit" class="border border-black rounded-2xl w-fit mx-auto px-4 py-2 transition-all hover:bg-slate-700 hover:text-white">Send</button>
+            </form>
+        </div>
+    </footer>
     <script>
 
 
@@ -504,7 +800,7 @@
             likeButton.classList.toggle("fa-solid");
             likeButton.classList.toggle("text-blue-500")
             likeButton.classList.toggle("text-black/60")
-            if (likeButton.classList.contains("fa-shake")) {
+            if (likeButton.classList.contains("animate-shake")) {
                 likeButton.classList.toggle("animate-shake")
 
             }
@@ -544,6 +840,70 @@
                 console.log('error');
             }
         });
+
+        const prevButton = document.getElementById("prev");
+        const nextButton = document.getElementById("next");
+
+
+
+        let videoIndex = 0;
+        const video = document.getElementById("video");
+        const videos = [
+            "https://www.youtube-nocookie.com/embed/kipZaOXt3M0?autoplay=1&loop=1&modestbranding=1&iv_load_policy=3&color=white&playlist=kipZaOXt3M0",
+            "https://www.youtube-nocookie.com/embed/3-1b5qUOt4A?autoplay=1&loop=1&modestbranding=1&iv_load_policy=3&color=white&playlist=3-1b5qUOt4A",
+            "https://www.youtube-nocookie.com/embed/-ljgu4GW2is?autoplay=1&loop=1&modestbranding=1&iv_load_policy=3&color=white&playlist=-ljgu4GW2is"
+        ];
+
+        const thumbnails = document.querySelectorAll(".thumb");
+
+        function changeThumbnail() {
+            thumbnails.forEach((thumbnail, index) => {
+                if (index === videoIndex) {
+                    thumbnail.classList.add("opacity-100");
+                    thumbnail.classList.remove("opacity-45");
+                } else {
+                    thumbnail.classList.remove("opacity-100")
+                    if (!(thumbnail.classList.contains("opacity-45"))) {
+                        thumbnail.classList.add("opacity-45");
+                    }
+                }
+            })
+        }
+
+        function setVideo(videoIndex) {
+            video.src = videos[videoIndex];
+            changeThumbnail();
+
+        }
+
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener("click", () => {
+                videoIndex = index;
+                setVideo(videoIndex);
+            })
+        })
+
+
+
+
+
+        setVideo(videoIndex);
+
+        prevButton.addEventListener("click", () => {
+            videoIndex--;
+            if (videoIndex < 0) {
+                videoIndex = videos.length - 1;
+            }
+            setVideo(videoIndex);
+        })
+
+        nextButton.addEventListener("click", () => {
+            videoIndex++;
+            if (videoIndex >= videos.length) {
+                videoIndex = 0;
+            }
+            setVideo(videoIndex);
+        })
 
         // Video Gallery
         // Get all the videos
@@ -591,6 +951,7 @@
         // }
 
     </script>
+
 </body>
 
 </html>
