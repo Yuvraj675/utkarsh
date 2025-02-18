@@ -1128,8 +1128,16 @@ input[type="range"]::-ms-fill-lower {
   height: 100svh;
 }
 
+.h-48 {
+  height: 12rem;
+}
+
 .max-h-56 {
   max-height: 14rem;
+}
+
+.max-h-52 {
+  max-height: 13rem;
 }
 
 .min-h-16 {
